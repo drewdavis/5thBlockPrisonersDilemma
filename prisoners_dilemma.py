@@ -43,6 +43,8 @@ def play_round(player1, player2, history1, history2, score1, score2):
         action1=' '
     if type(action2) != str:
         action2=' '
+    action1 = 'c' if 'c' in action1 else 'b'
+    action2 = 'c' if 'c' in action1 else 'b'
     #Append the actions to the previous histories, to return
     new_history1 = history1 + action1
     new_history2 = history2 + action2
@@ -122,13 +124,17 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
 
     ######
     ######
-    #
-    #This example player always betrays.
+    #KimKarlNEY
     elif player == 1:
         if getting_team_name:
-            return 'backstabber'
+            return 'KimKarlNEY'
         else:
-            return 'b'
+            if random.choice((True,False)):
+                return 'c'
+            try:
+                return opponent_history[-1]
+            except IndexError:
+                return 'c'
 
 
 
