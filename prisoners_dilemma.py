@@ -343,7 +343,8 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
     # Cameron and Harish
     ######
     elif player == 9:
-        recent = opponent_history[-1]
+        i = 0
+        recent = opponent_history[i]
         if getting_team_name:
             return 'pc masterrace'
         else:
@@ -353,6 +354,7 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
                 return 'b' # betray 
             else:
                 return 'c' # collude
+        i = i +1
 
 
 
