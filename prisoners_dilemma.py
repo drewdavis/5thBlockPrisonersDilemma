@@ -270,21 +270,16 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
 
 
 
-    ######
-    ######
-    #
-    elif player == 7:
+    ### Sam and Jackson
+    ### Betrays first time and if someone else betrays
+    elif player == 20:
         if getting_team_name:
-            return 'loyal vengeful'
+            return 'Gwlobl Glooglders7'
         else:
-            # use history, opponent_history, score, opponent_score
-            # to compute your strategy
-            if len(opponent_history)==0: #It's the first round: collude
-                return 'c'
-            elif history[-1]=='c' and opponent_history[-1]=='b':
-                return 'b' # betray is they were sucker last time
-            else:
-                return 'c' #otherwise collude
+            if len(opponent_history)==0: #Betrays first round
+                return 'b'
+            elif opponent_history[-1]=='b': #if any anyone betrays on their last turn, betray back
+                return 'b'
 
 
 
