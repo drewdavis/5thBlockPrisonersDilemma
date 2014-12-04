@@ -124,13 +124,17 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
 
     ######
     ######
-    #
-    #This example player always betrays.
+    #KimKarlNEY
     elif player == 1:
         if getting_team_name:
-            return 'backstabber'
+            return 'KimKarlNEY'
         else:
-            return 'b'
+            if random.choice((True,False)):
+                return 'c'
+            try:
+                return opponent_history[-1]
+            except IndexError:
+                return 'c'
 
 
 
