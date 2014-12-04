@@ -347,12 +347,12 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
         if getting_team_name:
             return 'pc masterrace'
         else:
-            if len(opponent_history)==0: #It's the first round: collude
+            if len(opponent_history)==0: #first round
                 return 'c'
             elif opponent_history == history:
-                return opponent_history[-1] # betray 
+                return opponent_history[-1] # match 
             else:
-                return 'b' # collude
+                return 'b' # no match
 
 
 
