@@ -15,7 +15,7 @@ Aggregated results are stored in tournament.txt
 Unpublished work (c)2013 Project Lead The Way
 CSE Project 1.3.5 Collaborating on a Project
 Draft, Do Not Distribute
-Version 8/23/2013
+Version 12/2/2014
 '''
 
 import random
@@ -105,14 +105,15 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
     as the first character and the most recent round as the last character.'''
 
     ######
+    # Jackson Lee and Dylan Petersen
     ######
     #
     # This example player always colludes
     if player == 0:
         if getting_team_name:
-            return 'loyal'
+            return 'backstabber'
         else:
-            return 'c'
+            return 'b'
 
 
 
