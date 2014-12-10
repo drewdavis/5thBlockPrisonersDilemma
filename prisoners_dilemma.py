@@ -216,7 +216,7 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
         else:
             # use history, opponent_history, score, opponent_score
             # to compute your strategy
-            if len(number_of_rounds-1) == len(opponent_history):
+            if number_of_rounds-1 == len(opponent_history):
                 return 'b'
             elif len(opponent_history) == 0:
                 return 'c'
