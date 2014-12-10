@@ -252,24 +252,24 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
 
 
 
-    ######
+    ###### Ryan and Rohin's Player
     ######
     #
     elif player == 6:
         if getting_team_name:
-            return 'loyal vengeful'
+            return 'Unforgiving Sneak'
         else:
-            # use history, opponent_history, score, opponent_score
-            # to compute your strategy
             if len(opponent_history)==0: #It's the first round: collude
                 return 'c'
-            elif history[-1]=='c' and opponent_history[-1]=='b':
-                return 'b' # betray is they were severely punished last time
+            elif history[-1]=='b': #betray if you betrayed last round
+                return 'b'
+            elif opponent_history[-1]=='b': #betray if you were betrayed last round
+                return 'b'
+            elif roundi == number_of_rounds:#betray the last round
+                return 'b'
             else:
                 return 'c' #otherwise collude
-        if roundi == number_of_rounds:
-            return 'b'
-
+      
 
 
 
