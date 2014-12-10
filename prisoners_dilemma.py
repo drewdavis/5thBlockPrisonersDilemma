@@ -139,7 +139,7 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
 
     ######
     ######
-    #Team #BrownMoses Burned The Bush
+    #Team #BrownMoses Burning Bush
     #Max and Swagthony
     #AKA Team winners
     #Game Theory ain't isht
