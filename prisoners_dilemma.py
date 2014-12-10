@@ -139,6 +139,10 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
 
     ######
     ######
+    #Team #BrownMoses Burned The Bush
+    #Max and Swagthony
+    #AKA Team winners
+    #Game Theory ain't isht
     #
     #This example player is silent at first and then
     #only betrays if they were a sucker last round.
@@ -146,13 +150,12 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
         if getting_team_name:
             return 'loyal vengeful'
         else:
-            if len(opponent_history)==0: #It's the first round: collude
+            if len(opponent_history)==0: #collude because we are innocent
                 return 'c'
-            elif history[-1]=='c' and opponent_history[-1]=='b':
-                return 'b' # betray if they were severely punished last time
+            elif  opponent_history[-1]=='b': #if this POS betrayed someone last time, we betray him.
+                return 'b' 
             else:
-                return 'c' #otherwise collude
-
+                return 'c' #if they were nice, we'll be nice
 
 
 
