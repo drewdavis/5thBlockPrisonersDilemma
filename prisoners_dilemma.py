@@ -352,7 +352,7 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
             elif opponent_history == history:
                 return opponent_history[-1] # match 
             else:
-                return 'b' # no match
+                return 'b' # no match.
 
 
 
