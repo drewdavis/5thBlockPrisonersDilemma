@@ -217,7 +217,7 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
                 return 'b'
             elif roundi == 0:
                 return 'c'
-            elif opponent_history[roundi-1] =='c' and history[roundi-1]:
+            elif opponent_history[roundi-1] =='c' and history[roundi-1] =='c':
                 return 'c'
             else:
                 return 'b'
