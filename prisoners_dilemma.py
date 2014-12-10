@@ -15,7 +15,6 @@ Aggregated results are stored in tournament.txt
 Unpublished work (c)2013 Project Lead The Way
 CSE Project 1.3.5 Collaborating on a Project
 Draft, Do Not Distribute
-Version 12/2/2014
 Version 12/4/2014
 '''
 
@@ -38,7 +37,7 @@ def play_round(player1, player2, history1, history2, score1, score2):
     PUNISHMENT = -250 # (P) when both players betray each other
     # Keep T > R > P > S to be a Prisoner's Dilemma
     # Keep 2R > T + S to be an Iterative Prisoner's Dilemma
-   
+    
     #Get the two players' actions and remember them.
     action1 = get_action(player1, history1, history2, score1, score2)
     action2 = get_action(player2, history2, history1, score2, score1)
@@ -207,21 +206,22 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
 
     ######
     ######
-    #
+    #   SWIMMERBROS (Max and Devon)
     elif player == 4:
         if getting_team_name:
-            return 'betray every 3rd round'
+            return 'SWIMMERBROS (Max and Devon)'
         else:
             # use history, opponent_history, score, opponent_score
             # to compute your strategy
-            size = len(history)
-            if(size%3==0): #the number of rounds played is a multiple of 3
+            if roundi == len(number_of_rounds-1):
+                return 'b'
+            elif roundi == 0:
+                return 'c'
+            elif opponent_history[roundi-1] =='c' and history[roundi-1]:
                 return 'c'
             else:
                 return 'b'
-
-
-
+        
 
 
 
@@ -569,6 +569,8 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
                 return 'b' # betray is they were severely punished last time
             else:
                 return 'c' #otherwise collude
+                
+        
 
 
 
