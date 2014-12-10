@@ -15,7 +15,7 @@ Aggregated results are stored in tournament.txt
 Unpublished work (c)2013 Project Lead The Way
 CSE Project 1.3.5 Collaborating on a Project
 Draft, Do Not Distribute
-Version 8/23/2013
+Version 12/4/2014
 '''
 
 import random
@@ -37,7 +37,7 @@ def play_round(player1, player2, history1, history2, score1, score2):
     PUNISHMENT = -250 # (P) when both players betray each other
     # Keep T > R > P > S to be a Prisoner's Dilemma
     # Keep 2R > T + S to be an Iterative Prisoner's Dilemma
-   
+    
     #Get the two players' actions and remember them.
     action1 = get_action(player1, history1, history2, score1, score2)
     action2 = get_action(player2, history2, history1, score2, score1)
@@ -109,14 +109,15 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
     as the first character and the most recent round as the last character.'''
 
     ######
+    # Jackson Lee and Dylan Petersen
     ######
     #
     # This example player always colludes
     if player == 0:
         if getting_team_name:
-            return 'loyal'
+            return 'backstabber'
         else:
-            return 'c'
+            return 'b'
 
 
 
@@ -205,21 +206,22 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
 
     ######
     ######
-    #
+    #   SWIMMERBROS (Max and Devon)
     elif player == 4:
         if getting_team_name:
-            return 'betray every 3rd round'
+            return 'SWIMMERBROS (Max and Devon)'
         else:
             # use history, opponent_history, score, opponent_score
             # to compute your strategy
-            size = len(history)
-            if(size%3==0): #the number of rounds played is a multiple of 3
+            if roundi == len(number_of_rounds-1):
+                return 'b'
+            elif roundi == 0:
+                return 'c'
+            elif opponent_history[roundi-1] =='c' and history[roundi-1]:
                 return 'c'
             else:
                 return 'b'
-
-
-
+        
 
 
 
@@ -229,17 +231,18 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
 
 
     ######
+    # Jon & Cody
     ######
     #
     elif player == 5:
         if getting_team_name:
-            return 'loyal vengeful'
+            return 'Vengeful Loyal'
         else:
             # use history, opponent_history, score, opponent_score
             # to compute your strategy
             if len(opponent_history)==0: #It's the first round: collude
                 return 'c'
-            elif history[-1]=='c' and opponent_history[-1]=='b':
+            elif history[-1]=='b' and opponent_history[-1]=='c':
                 return 'b' # betray is they were severely punished last time
             else:
                 return 'c' #otherwise collude
@@ -350,20 +353,20 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
 
 
     ######
+    # Cameron and Harish
     ######
-    #
     elif player == 9:
+
         if getting_team_name:
-            return 'loyal vengeful'
+            return 'pc masterrace'
         else:
-            # use history, opponent_history, score, opponent_score
-            # to compute your strategy
-            if len(opponent_history)==0: #It's the first round: collude
+            if len(opponent_history)==0: #first round
                 return 'c'
-            elif history[-1]=='c' and opponent_history[-1]=='b':
-                return 'b' # betray is they were severely punished last time
+            elif opponent_history == history:
+                return opponent_history[-1] # match 
             else:
-                return 'c' #otherwise collude
+                return 'b' # no match.
+
 
 
 
@@ -566,6 +569,8 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
                 return 'b' # betray is they were severely punished last time
             else:
                 return 'c' #otherwise collude
+                
+        
 
 
 
