@@ -271,21 +271,21 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
 
 
 
-    ###### Max and Tage ######
+    ######
+    ######
+    #
     elif player == 7:
         if getting_team_name:
-            return 'Squaddle Squoogerzs'
+            return 'loyal vengeful'
         else:
             # use history, opponent_history, score, opponent_score
             # to compute your strategy
             if len(opponent_history)==0: #It's the first round: collude
                 return 'c'
             elif history[-1]=='c' and opponent_history[-1]=='b':
-                return 'b' #betray if they were sucker last time
+                return 'b' # betray is they were sucker last time
             else:
                 return 'c' #otherwise collude
-        if player == 8:
-                return 'b'
 
 
 
