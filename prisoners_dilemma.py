@@ -148,6 +148,10 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
 
     ######
     ######
+    #Team #BrownMoses Burning Bush
+    #Max and Swagthony
+    #AKA Team winners
+    #Game Theory ain't isht
     #
     #This example player is silent at first and then
     #only betrays if they were a sucker last round.
@@ -155,13 +159,12 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
         if getting_team_name:
             return 'loyal vengeful'
         else:
-            if len(opponent_history)==0: #It's the first round: collude
+            if len(opponent_history)==0: #collude because we are innocent
                 return 'c'
-            elif history[-1]=='c' and opponent_history[-1]=='b':
-                return 'b' # betray if they were severely punished last time
+            elif  opponent_history[-1]=='b': #if this POS betrayed someone last time, we betray him.
+                return 'b' 
             else:
-                return 'c' #otherwise collude
-
+                return 'c' #if they were nice, we'll be nice
 
 
 
@@ -255,24 +258,24 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
 
 
 
-    ######
+    ###### Ryan and Rohin's Player
     ######
     #
     elif player == 6:
         if getting_team_name:
-            return 'loyal vengeful'
+            return 'Unforgiving Sneak'
         else:
-            # use history, opponent_history, score, opponent_score
-            # to compute your strategy
             if len(opponent_history)==0: #It's the first round: collude
                 return 'c'
-            elif history[-1]=='c' and opponent_history[-1]=='b':
-                return 'b' # betray is they were severely punished last time
+            elif history[-1]=='b': #betray if you betrayed last round
+                return 'b'
+            elif opponent_history[-1]=='b': #betray if you were betrayed last round
+                return 'b'
+            elif roundi == number_of_rounds:#betray the last round
+                return 'b'
             else:
                 return 'c' #otherwise collude
-        if roundi == number_of_rounds:
-            return 'b'
-
+      
 
 
 
